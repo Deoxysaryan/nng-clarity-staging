@@ -1,0 +1,367 @@
+/* Numerology LP v2: numerology-specific refinements over styles.css and v4.css. Same palette, same layout. */
+
+/* Hero: program word and form sit inside the original copy column */
+html body.lp-num .nh2-copy .v4-program { margin: 6px 0 4px; }
+html body.lp-num .nh2-copy h1 { max-width: 15em; }
+html body.lp-num .nh2-copy .v4-hf { margin-top: 20px; }
+
+/* Meet: introduction film in the original arch, her face never cropped */
+html body.lp-num .nm-arch.v4-film { position: absolute; background: #F3EBDD; aspect-ratio: auto; height: auto; }
+html body.lp-num .nm-arch.v4-film video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+html body.lp-num .nm-arch.v4-film.is-playing video { object-fit: contain; background: #10261A; }
+html body.lp-num .nm-arch .v4-film-play { position: absolute; left: 50% !important; right: auto !important; bottom: 18% !important; top: auto !important; transform: translateX(-50%) !important; translate: none !important; white-space: nowrap; z-index: 2; }
+html body.lp-num .nm-arch.is-playing .v4-film-play { display: none; }
+html body.lp-num .nm-copy .v4-meds { margin: 22px 0 18px; }
+
+/* Pain cards: taller emotional pictures that cross-fade from the pattern to the outcome */
+html body.lp-num .nq-sub { margin: 10px auto 0; max-width: 560px; font-size: var(--ts-lead, 16px); line-height: 1.6; color: #56635C; text-align: center; }
+html body.lp-num .nq-photo { height: auto; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; }
+html body.lp-num .nq-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+html body.lp-num .nq-photo .nq-after { opacity: 0; animation: n-fade 7s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 1.2s); }
+html body.lp-num .nq-photo em, html body.lp-num .nq-photo .nq-ic { z-index: 2; }
+html body.lp-num .nq-cards article { --i: 0; }
+html body.lp-num .nq-cards article > .v4-area { margin: 16px 14px 0; }
+html body.lp-num .nq-cards article > h3 { margin: 6px 14px 0; }
+html body.lp-num .nq-cards article > .v4-before, html body.lp-num .nq-cards article > .v4-after-txt { margin-left: 14px; margin-right: 14px; }
+html body.lp-num .nq-cards article > .v4-before { margin-top: 8px; }
+html body.lp-num .nq-cards article > .v4-after-txt { margin-top: 8px; flex: 1; }
+html body.lp-num .nq-cards article > .v4-me { align-self: flex-start; margin: 14px 14px 0; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border-radius: 999px; background: linear-gradient(160deg, #1D4A37, #123A2B); color: #F4E2B8; font-weight: 600; font-size: 14.5px; text-decoration: none; }
+@keyframes n-fade { 0%, 38% { opacity: 0; } 48%, 88% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { html body.lp-num .nq-photo .nq-after { animation: none; } }
+@media (max-width: 760px) { html body.lp-num .nq-photo { aspect-ratio: 1 / 1; } }
+
+/* Consultation options: a full meaning line under each, no clipping */
+html body.lp-num .no-grid .no-what { margin: 6px 0 0; font-size: 13.5px; line-height: 1.45; color: #56635C; display: block; -webkit-line-clamp: unset; overflow: visible; white-space: normal; text-overflow: clip; }
+html body.lp-num .no-grid li { height: auto; }
+
+/* Client films: the summary line for a film without a spoken quote */
+html body.lp-num .cv5-say { margin: 6px 0 0; font-family: var(--display, Marcellus, serif); font-size: 16px; line-height: 1.45; color: #1F2A24; }
+
+/* Floating buttons stay out of the hero */
+html body.lp-num.n-top .v4-fabs { opacity: 0; pointer-events: none; }
+
+/* Four client films sit in one row on wide screens */
+@media (min-width: 1100px) { html body.lp-num .cv5-list > .cv5-card { flex: 0 0 calc((100% - 54px) / 4) !important; max-width: calc((100% - 54px) / 4) !important; } }
+
+/* Program name fits the narrowest phones */
+@media (max-width: 340px) { html body.lp-num .v4-program { font-size: 40px !important; } }
+
+/* Hero heading keeps clear of the photo on desktop */
+@media (min-width: 901px) { html body.lp-num .nh2-copy h1 { max-width: 11.5em; } }
+
+/* ---- pass 2: less text, more visual ---- */
+html body.lp-num .n-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Meet: film, one line, CTA. No repeated stats */
+html body.lp-num .nm-copy .nm-lead { max-width: 520px; }
+
+/* Consultation options: no photo, six compact cards across the full width, whole card tappable */
+html body.lp-num .no-inner { grid-template-columns: 1fr; }
+html body.lp-num .no-main { text-align: center; }
+html body.lp-num .no-main .nh2-kicker { justify-content: center; }
+html body.lp-num .no-main .no-cta { margin-inline: auto; }
+html body.lp-num .no-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: left; }
+html body.lp-num .no-grid li { min-height: 0; padding: 18px 18px 18px; }
+html body.lp-num .no-grid .no-go::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+html body.lp-num .no-grid .no-what { font-size: 14px; margin-right: 40px; }
+@media (max-width: 760px) {
+  html body.lp-num .no-main { text-align: left; }
+  html body.lp-num .no-main .nh2-kicker { justify-content: flex-start; }
+  html body.lp-num .no-main .no-cta { margin-inline: 0; }
+  html body.lp-num .no-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  html body.lp-num .no-grid li { padding: 14px 12px 50px; }
+  html body.lp-num .no-grid .no-what { font-size: 13px; margin-right: 0; }
+}
+
+/* Birth-date tool */
+html body.lp-num .n-calc { margin: 20px 0 22px; padding: 18px; border-radius: 20px; background: linear-gradient(160deg, #1D4A37, #123A2B); color: #F4ECDC; box-shadow: 0 30px 50px -34px rgb(16 38 26 / .7); }
+html body.lp-num .n-calc-k { margin: 0 0 12px; font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #E3C27A; }
+html body.lp-num .n-calc-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 0; }
+html body.lp-num .n-calc-in { flex: 1 1 180px; min-width: 0; min-height: 48px; padding: 0 14px; border: 1px solid rgb(227 194 122 / .5); border-radius: 12px; background: #FFFDF8; color: #10261A; font: inherit; font-size: 16px; }
+html body.lp-num .n-calc-btn { flex: 0 0 auto; min-height: 48px; }
+html body.lp-num .n-calc-err { margin: 6px 0 0; min-height: 0; font-size: 13px; color: #F2B8A0; }
+html body.lp-num .n-calc-err:empty { display: none; }
+html body.lp-num .n-calc-out { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; animation: n-in .5s ease both; }
+html body.lp-num .n-calc-out[hidden] { display: none; }
+html body.lp-num .n-num { display: grid; gap: 4px; padding: 14px; border-radius: 16px; background: rgb(255 253 248 / .08); box-shadow: inset 0 0 0 1px rgb(227 194 122 / .35); }
+html body.lp-num .n-num b { font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 52px; line-height: 1; color: #E3C27A; }
+html body.lp-num .n-num span { font-size: 15px; font-weight: 600; color: #FFF; }
+html body.lp-num .n-num small { display: block; font-size: 12px; font-weight: 400; color: rgb(244 236 220 / .75); }
+html body.lp-num .n-num em { font-style: normal; font-size: 12.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #E3C27A; }
+html body.lp-num .n-calc-note { grid-column: 1 / -1; margin: 4px 0 0; font-size: 14.5px; line-height: 1.5; color: rgb(244 236 220 / .85); }
+html body.lp-num .n-calc-cta { grid-column: 1 / -1; justify-self: start; text-decoration: none; }
+html body.lp-num .na-grid span.is-hit { box-shadow: 0 0 0 2px #C9A25A, 0 10px 24px -10px rgb(181 138 62 / .8); background: #FFF3D6; }
+@keyframes n-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+/* ---- pass 3: CTAs hug their label, one arrow each (same rule as Brainology) ---- */
+html body.lp-num :is(a.nm-cta, a.no-cta, a.nw-cta, a.nh2-cta) .nh2-arrow,
+html body.lp-num a.nw-cta > i { display: none !important; }
+@media (max-width: 760px) {
+  html body.lp-num :is(a.nm-cta, a.no-cta, a.nw-cta, a.nh2-cta, a.n-calc-cta) { width: auto !important; max-width: 100%; justify-content: flex-start !important; align-self: flex-start; white-space: nowrap; }
+  html body.lp-num a.nw-cta { min-height: 50px; font-size: 16px; padding: 5px 18px 5px 22px; }
+}
+/* narrowest phones: options section stays inside the screen */
+@media (max-width: 300px) { html body.lp-num .no-inner { width: calc(100% - 32px); } html body.lp-num .no-main .no-cta { white-space: normal; } }
+
+/* ---- pass 4: fewer boxes ---- */
+/* pain cards: the round icon was cut by the picture edge; the label above the heading already names the topic */
+html body.lp-num .nq-photo .nq-ic { display: none !important; }
+/* options: compact tiles, the whole tile is the link, no empty arrow row */
+@media (max-width: 760px) {
+  html body.lp-num .no-grid li { padding: 14px 12px 14px !important; }
+  html body.lp-num .no-grid .no-go { display: none; }
+  html body.lp-num .no-grid li { cursor: pointer; }
+}
+/* how I work with you: four short promises as an open icon list, not four boxes */
+html body.lp-num .nw-cards article { background: none !important; box-shadow: none !important; border: 0 !important; padding: 0 !important; min-height: 0 !important; gap: 12px; align-items: flex-start; }
+html body.lp-num .nw-cards { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px !important; }
+html body.lp-num .nw-cards .nw-go { display: none !important; }
+html body.lp-num .nw-cards h3 { margin: 0; }
+html body.lp-num .nw-cards p { margin: 2px 0 0; }
+
+/* ---- pass 5: approach steps as one slim three-step strip, not three tall boxes ---- */
+html body.lp-num .na-steps { position: relative; display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px !important; margin: 18px 0 0 !important; padding: 0 !important; counter-reset: none; }
+html body.lp-num .na-steps::before { content: ""; position: absolute; left: 16.6%; right: 16.6%; top: 24px; height: 1px; background: linear-gradient(90deg, #C9A25A, rgb(201 162 90 / .3)); }
+html body.lp-num .na-steps li { position: relative; display: flex !important; flex-direction: column; align-items: center; gap: 8px; min-height: 0 !important; padding: 0 !important; background: none !important; box-shadow: none !important; border: 0 !important; text-align: center; transform: none !important; }
+html body.lp-num .na-steps li::before, html body.lp-num .na-steps li::after { display: none !important; }
+html body.lp-num .na-steps .na-ic { position: relative; z-index: 1; width: 48px !important; height: 48px !important; margin: 0 !important; border-radius: 50%; background: #FFF8EA !important; box-shadow: 0 0 0 1px #C9A25A; }
+html body.lp-num .na-steps .na-tx { display: block; padding: 0 !important; border: 0 !important; }
+html body.lp-num .na-steps .na-tx::before, html body.lp-num .na-steps .na-tx::after { display: none !important; }
+html body.lp-num .na-steps .na-tx strong { display: block; font-size: 15px !important; line-height: 1.25; padding: 0 !important; border: 0 !important; }
+html body.lp-num .na-steps .na-tx small, html body.lp-num .na-steps .na-no, html body.lp-num .na-steps .bj-go { display: none !important; }
+
+/* ---- pass 6: How I work with you on phones, her photo sits beside the four promises ---- */
+@media (max-width: 760px) {
+  html body.lp-num .nw-inner { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr) !important; gap: 14px 14px !important; align-items: center; }
+  html body.lp-num .nw-copy { display: contents; }
+  html body.lp-num .nw-copy > .nh2-kicker, html body.lp-num .nw-copy > h2 { grid-column: 1 / -1; }
+  html body.lp-num .nw-copy > h2 { margin-bottom: 4px; }
+  html body.lp-num .nw-photo { grid-column: 1; grid-row: 3; width: 100% !important; height: 300px !important; margin: 0 !important; }
+  html body.lp-num .nw-photo .nw-panel { width: 60%; bottom: 0; }
+  html body.lp-num .nw-photo .nw-arch { left: 8%; right: 0; top: 14px; bottom: 0; border-radius: 120px 120px 18px 18px; box-shadow: 0 0 0 4px #FFFCF6, 0 0 0 5px #C9A25A, 0 24px 40px -26px rgb(60 50 30 / .6); }
+  html body.lp-num .nw-photo > svg, html body.lp-num .nw-photo figcaption { display: none !important; }
+  html body.lp-num .nw-cards { grid-column: 2; grid-row: 3; grid-template-columns: 1fr !important; gap: 14px !important; margin: 0 !important; }
+  html body.lp-num .nw-cards article { gap: 10px; }
+  html body.lp-num .nw-cards .nw-ic { flex: none; width: 34px !important; height: 34px !important; }
+  html body.lp-num .nw-cards .nw-ic > i { display: none; }
+  html body.lp-num .nw-cards .nw-ic svg { width: 17px; height: 17px; }
+  html body.lp-num .nw-cards h3 { font-size: 15.5px !important; line-height: 1.2; }
+  html body.lp-num .nw-cards p { font-size: 13px !important; line-height: 1.35; }
+}
+
+/* ---- pass 7: structure for phones ---- */
+@media (max-width: 760px) {
+  /* hero: shorter photo so "Numerology", the question and the form start on the first screen */
+  html body.lp-num .nh2-visual { height: min(78vw, 310px) !important; }
+  html body.lp-num .nh2-photo img { object-position: 46% 8% !important; }
+  html body.lp-num .nh2-ring { top: 36% !important; width: 88vw !important; }
+  html body.lp-num .nh2-grid { bottom: 54px !important; }
+  html body.lp-num .nh2-name { bottom: 8px !important; }
+  html body.lp-num .nh2-t2 { display: none; }
+  /* the four hero facts repeat the fact strip above, so phones skip them */
+  html body.lp-num .nh2-feats { display: none !important; }
+  html body.lp-num .nh2-copy { padding-bottom: 26px !important; }
+  /* options: no big numbers, tiles read as one quick list */
+  html body.lp-num .no-grid em { display: none; }
+  html body.lp-num .no-grid .no-ic { width: 36px; height: 36px; }
+}
+/* enquiry: one dark block. The section's own heading leads into the form; the separate band above it is dropped */
+html body.lp-num .nw-band { display: none !important; }
+html body.lp-num .nw ~ .en2 .en2-head { display: block !important; }
+html body.lp-num .nw { padding-bottom: 40px; }
+@media (min-width: 761px) { html body.lp-num .nh2 h1 { white-space: normal !important; max-width: 12em; } }
+@media (min-width: 761px) { html body.lp-num .nm-arch .v4-film-play { bottom: 30% !important; } }
+
+/* ======== Mobile audit fixes (iOS + Android) ======== */
+/* Floating buttons: smaller, so they cover less of each card */
+@media (max-width: 760px) {
+  html body.lp-num .v4-fabs { right: 12px; gap: 10px; bottom: calc(14px + env(safe-area-inset-bottom)); }
+  html body.lp-num .v4-fab { width: 48px; height: 48px; }
+  html body.lp-num .v4-fab-wa svg { width: 26px; height: 26px; }
+  html body.lp-num .v4-fab-form svg { width: 22px; height: 22px; }
+}
+html body.lp-num.n-calc-in-view .v4-fabs { opacity: 0; pointer-events: none; }
+html body.lp-num .v4-fabs { transition: opacity .25s ease; }
+
+/* Readable small print: nothing under 12px */
+html body.lp-num .nh2-name small, html body.lp-num .nm-photo figcaption small, html body.lp-num .nw-photo figcaption small { font-size: 11px !important; letter-spacing: .16em !important; }
+@media (max-width: 760px) {
+  html body.lp-num .nm-foot li { font-size: 12px !important; }
+  html body.lp-num .nh2-name small { font-size: 10px !important; }
+}
+html body.lp-num .nm-photo figcaption { max-width: calc(100% - 12px); }
+
+/* Pain cards: the decorative dial and moon sat on top of the heading on phones */
+@media (max-width: 760px) {
+  html body.lp-num .nq-dial, html body.lp-num .nq-moon, html body.lp-num .nq .nq-s1, html body.lp-num .nq .nq-s2 { display: none !important; }
+  html body.lp-num .nq-cards article > h3 { margin-top: 16px; }
+}
+
+/* Birth-date tool: visible label, iOS-safe date box */
+html body.lp-num .n-calc-lbl { flex: 1 1 100%; margin: 0 0 -2px; font-size: 13px; color: rgb(244 236 220 / .8); }
+html body.lp-num .n-calc-in { -webkit-appearance: none; appearance: none; display: block; text-align: left; line-height: 46px; }
+html body.lp-num .n-calc-in::-webkit-date-and-time-value { text-align: left; }
+html body.lp-num .n-calc-in::-webkit-calendar-picker-indicator { opacity: .7; }
+
+/* Motion: the three steps light up one after another while on screen */
+html body.lp-num .na-steps li .na-ic { transition: background .4s, box-shadow .4s, color .4s; }
+html body.lp-num .na-steps li.is-lit .na-ic { background: linear-gradient(160deg, #1D4A37, #123A2B) !important; color: #E3C27A; box-shadow: 0 0 0 2px #C9A25A, 0 10px 22px -10px rgb(16 38 26 / .6); }
+html body.lp-num .na-steps li.is-lit strong { color: #1D4A37; }
+/* Motion: promises arrive one by one */
+@media (prefers-reduced-motion: no-preference) {
+  html body.lp-num .nw-cards article { opacity: 0; translate: 0 10px; transition: opacity .6s ease, translate .6s ease; }
+  html body.lp-num .nw-cards.is-in article { opacity: 1; translate: 0 0; }
+  html body.lp-num .nw-cards.is-in article:nth-child(2) { transition-delay: .15s; }
+  html body.lp-num .nw-cards.is-in article:nth-child(3) { transition-delay: .3s; }
+  html body.lp-num .nw-cards.is-in article:nth-child(4) { transition-delay: .45s; }
+}
+@media (max-width: 400px) {
+  html body.lp-num .nh2-copy .nh2-kicker { flex-wrap: wrap; row-gap: 2px; }
+  html body.lp-num .nh2-copy .nh2-kicker em { flex-basis: 100%; padding-left: 22px; }
+  html body.lp-num .nq h2 { font-size: 27px !important; }
+  html body.lp-num .nq h2 br { display: none; }
+  html body.lp-num .nq h2 em { display: block; }
+}
+html body.lp-num :is(h1, h2, h3) { text-wrap: balance; }
+@media (max-width: 400px) { html body.lp-num .nq h2 { max-width: none !important; font-size: 26px !important; } }
+
+/* ---- Birth-date tool: more pull ---- */
+html body.lp-num .n-calc { position: relative; overflow: hidden; padding: 22px 18px 20px; box-shadow: 0 0 0 1px rgb(227 194 122 / .35), 0 34px 60px -34px rgb(16 38 26 / .8); }
+html body.lp-num .n-calc::before { content: ""; position: absolute; right: -60px; top: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(closest-side, rgb(227 194 122 / .22), transparent); pointer-events: none; }
+html body.lp-num .n-calc-k { display: flex; align-items: center; gap: 10px; }
+html body.lp-num .n-pulse { position: relative; flex: none; width: 10px; height: 10px; border-radius: 50%; background: #E3C27A; }
+html body.lp-num .n-pulse::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid #E3C27A; opacity: 0; animation: n-ping 1.8s ease-out infinite; }
+@keyframes n-ping { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(1.4); opacity: 0; } }
+html body.lp-num .n-calc-btn { gap: 10px; animation: n-glow 2.4s ease-in-out infinite; }
+html body.lp-num .n-calc.is-done .n-calc-btn { animation: none; }
+@keyframes n-glow { 0%, 100% { box-shadow: 0 0 0 0 rgb(227 194 122 / .55); } 50% { box-shadow: 0 0 0 8px rgb(227 194 122 / 0); } }
+@media (max-width: 760px) { html body.lp-num .n-calc-btn { flex: 1 1 100%; justify-content: center !important; width: 100% !important; } }
+html body.lp-num .n-calc-note b { color: #E3C27A; font-weight: 600; }
+html body.lp-num .n-num b.is-rolling { opacity: .55; }
+@media (prefers-reduced-motion: reduce) { html body.lp-num .n-pulse::after, html body.lp-num .n-calc-btn { animation: none; } }
+@media (max-width: 400px) { html body.lp-num .n-calc-k { letter-spacing: .1em; font-size: 12px; } }
+
+/* How I work with you: only the icon art glows, one after another, to hold the eye */
+@media (prefers-reduced-motion: no-preference) {
+  html body.lp-num .nw-cards .nw-ic { animation: n-iconglow 4.8s ease-in-out infinite; }
+  html body.lp-num .nw-cards article:nth-child(2) .nw-ic { animation-delay: 1.2s; }
+  html body.lp-num .nw-cards article:nth-child(3) .nw-ic { animation-delay: 2.4s; }
+  html body.lp-num .nw-cards article:nth-child(4) .nw-ic { animation-delay: 3.6s; }
+  html body.lp-num .nw-cards .nw-ic svg { animation: n-iconart 4.8s ease-in-out infinite; animation-delay: inherit; }
+}
+@keyframes n-iconglow {
+  0%, 30%, 100% { box-shadow: 0 0 0 0 rgb(227 194 122 / 0); }
+  10% { box-shadow: 0 0 0 3px rgb(227 194 122 / .9), 0 0 22px 6px rgb(227 194 122 / .55); }
+  20% { box-shadow: 0 0 0 6px rgb(227 194 122 / 0), 0 0 14px 2px rgb(227 194 122 / .2); }
+}
+@keyframes n-iconart { 0%, 30%, 100% { color: inherit; filter: none; } 10% { color: #FFE7A8; filter: drop-shadow(0 0 4px rgb(255 231 168 / .9)); } }
+
+/* Meet: three credentials */
+html body.lp-num .n-creds { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 18px 0 0 !important; padding: 0; list-style: none; }
+html body.lp-num .n-creds li { display: grid !important; gap: 2px; padding: 0 12px !important; border-left: 1px solid rgb(201 162 90 / .4); text-align: left !important; align-items: start !important; }
+html body.lp-num .n-creds li:first-child { padding-left: 0 !important; border-left: 0; }
+html body.lp-num .n-creds b { font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 26px; line-height: 1.1; color: #9A6C2E; }
+html body.lp-num .n-creds span { font-size: 12.5px !important; line-height: 1.35; color: #4E4E48; }
+@media (max-width: 760px) { html body.lp-num .n-creds b { font-size: 22px; } html body.lp-num .n-creds li { padding: 0 8px !important; } }
+html body.lp-num .nm-foot .n-creds { flex: 1 1 100%; width: 100%; max-width: 460px; }
+html body.lp-num .nm-foot .n-creds li span { display: block !important; width: auto !important; height: auto !important; border-radius: 0 !important; background: none !important; color: #4E4E48 !important; }
+html body.lp-num .nm-foot .n-creds li { flex-direction: column !important; }
+@media (max-width: 300px) { html body.lp-num .nm-photo { width: calc(100% - 10px) !important; max-width: calc(100% - 10px) !important; margin-inline: auto !important; } }
+/* pain cards: no gap between the quote and the answer; the button sits at the card foot */
+html body.lp-num .nq-cards article > .v4-after-txt { flex: none !important; }
+html body.lp-num .nq-cards article > .v4-me { margin-top: auto !important; }
+html body.lp-num .nq-cards article > .v4-after-txt { margin-bottom: 14px; }
+@media (max-width: 760px) { html body.lp-num .nw-cards .nw-ic { width: 40px !important; height: 40px !important; } html body.lp-num .nw-cards .nw-ic svg { width: 22px !important; height: 22px !important; } }
+
+/* Steps: circles never clipped; only the icon art lights up */
+html body.lp-num .na-steps, html body.lp-num .na-steps li { overflow: visible !important; }
+html body.lp-num .na-steps { padding-top: 6px !important; }
+html body.lp-num .na-steps li.is-lit .na-ic { background: #FFF8EA !important; color: inherit; box-shadow: 0 0 0 1.5px #C9A25A !important; }
+html body.lp-num .na-steps .na-ic svg { transition: color .4s, filter .4s, transform .4s; }
+html body.lp-num .na-steps li.is-lit .na-ic svg { color: #B8862F; filter: drop-shadow(0 0 3px rgb(227 194 122 / .95)) drop-shadow(0 0 8px rgb(227 194 122 / .7)); transform: scale(1.12); }
+html body.lp-num .na-steps li.is-lit strong { color: #9A6C2E; }
+html body.lp-num .na-steps li.is-lit .na-ic svg { color: #C9962F; stroke-width: 2; filter: drop-shadow(0 0 4px rgb(240 200 110 / 1)) drop-shadow(0 0 12px rgb(240 200 110 / .85)); transform: scale(1.25); }
+html body.lp-num .na-steps li.is-lit .na-ic svg { color: #8A5A12; stroke-width: 2.2; filter: drop-shadow(0 0 5px rgb(235 180 70 / 1)) drop-shadow(0 0 10px rgb(235 180 70 / .9)); transform: scale(1.3); animation: n-artpulse 1.8s ease-in-out infinite; }
+@keyframes n-artpulse { 0%, 100% { filter: drop-shadow(0 0 3px rgb(235 180 70 / .7)) drop-shadow(0 0 6px rgb(235 180 70 / .5)); } 50% { filter: drop-shadow(0 0 6px rgb(235 180 70 / 1)) drop-shadow(0 0 14px rgb(235 180 70 / .95)); } }
+@media (prefers-reduced-motion: reduce) { html body.lp-num .na-steps li.is-lit .na-ic svg { animation: none; } }
+html body.lp-num .nw-cards p { text-wrap: pretty; }
+html body.lp-num .nm { overflow: visible !important; }
+html body.lp-num .nm-copy { padding-bottom: 28px; }
+html body.lp-num .nq-sub { text-wrap: balance; }
+
+/* Lo Shu figure on phones: the figure is scaled down to fit, so its legend and card labels are drawn larger inside it */
+@media (max-width: 760px) {
+  html body.lp-num .na-legend { top: 548px !important; height: auto !important; padding: 16px 8px !important; }
+  html body.lp-num .na-legend li { flex-direction: column !important; justify-content: flex-start !important; gap: 8px !important; padding: 0 6px !important; font-size: 30px !important; text-align: center; }
+  html body.lp-num .na-legend li i { width: 54px !important; height: 54px !important; }
+  html body.lp-num .na-legend li i svg { width: 28px !important; height: 28px !important; }
+  html body.lp-num .na-legend li span { justify-items: center; }
+  html body.lp-num .na-legend li small { font-size: 22px !important; margin-top: 2px; }
+  html body.lp-num .na-card strong { font-size: 24px !important; }
+  html body.lp-num .na-figure { margin-bottom: calc(80px * var(--k)) !important; }
+}
+@media (max-width: 760px) {
+  html body.lp-num .na-figure { height: calc(735px * var(--k)) !important; margin-bottom: 0 !important; }
+  html body.lp-num .na-legend li::before { display: none !important; }
+  html body.lp-num .na-card strong { font-size: 19px !important; }
+}
+@media (max-width: 760px) {
+  html body.lp-num .na-card strong { font-size: 21px !important; line-height: 1.1; white-space: normal !important; }
+  html body.lp-num .na-card { height: 150px !important; padding-right: 12px !important; }
+  html body.lp-num .na-legend li small { font-size: 24px !important; }
+}
+@media (max-width: 760px) { html body.lp-num .na-legend li small { font-size: 22px !important; white-space: nowrap; } html body.lp-num .na-figure { height: calc(750px * var(--k)) !important; } }
+
+/* Birth-date tool: colours and day */
+html body.lp-num .n-calc-lbl span { color: rgb(244 236 220 / .55); }
+html body.lp-num .n-extra { grid-column: 1 / -1; display: grid; grid-template-columns: 1.6fr 1fr; gap: 10px; }
+html body.lp-num .n-extra > div { padding: 14px; border-radius: 16px; background: rgb(255 253 248 / .08); box-shadow: inset 0 0 0 1px rgb(227 194 122 / .35); }
+html body.lp-num .n-x-k { margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #E3C27A; }
+html body.lp-num .n-col ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; margin: 0; padding: 0; list-style: none; }
+html body.lp-num .n-col li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: #FFF; line-height: 1.2; }
+html body.lp-num .n-col li i { flex: none; width: 18px; height: 18px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgb(255 255 255 / .6); }
+html body.lp-num .n-day b { display: block; font-family: var(--display, Marcellus, serif); font-weight: 400; font-size: 24px; line-height: 1.1; color: #FFF; }
+html body.lp-num .n-day small { display: block; margin-top: 6px; font-size: 12px; line-height: 1.35; color: rgb(244 236 220 / .75); }
+@media (max-width: 340px) { html body.lp-num .n-extra { grid-template-columns: 1fr; } }
+html body.lp-num .n-extra { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; min-width: 0; }
+html body.lp-num .n-extra > div { min-width: 0; }
+html body.lp-num .n-col ul { grid-template-columns: 1fr !important; gap: 7px; }
+html body.lp-num .n-col li { white-space: nowrap; }
+
+/* Meet: "what I read beyond the basics" as one open list, not five boxes */
+html body.lp-num .nm-copy .v4-meds ul { gap: 0 !important; }
+html body.lp-num .nm-copy .v4-meds li { background: none !important; box-shadow: none !important; border: 0 !important; border-bottom: 1px solid rgb(201 162 90 / .3) !important; border-radius: 0 !important; padding: 12px 0 !important; }
+html body.lp-num .nm-copy .v4-meds li:last-child { border-bottom: 0 !important; }
+@media (min-width: 761px) { html body.lp-num .nm-copy .v4-meds ul { column-gap: 22px !important; } }
+html body.lp-num .n-num .n-trait { margin: 4px 0 0; font-size: 13.5px; line-height: 1.45; color: #FFF; }
+/* decision cards: no empty gap between the quote and the answer */
+html body.lp-num .nq-cards article > .v4-before { flex: none !important; }
+html body.lp-num .nq-cards article > .v4-after-txt { margin-bottom: 16px !important; }
+/* Lo Shu figure: the entrance plays faster, so the grid, cards and legend are in place before the reader scrolls past */
+@media (prefers-reduced-motion: no-preference) {
+  html body.lp-num .na-figure.is-seen .na-grid span { transition-delay: calc(0.2s + var(--o) * 0.06s) !important; }
+  html body.lp-num .na-figure.is-seen .na-glance { transition-delay: 0.5s !important; }
+  html body.lp-num .na-figure.is-seen :is(.na-card, .na-legend) { transition-delay: 0.8s !important; }
+  html body.lp-num .na-figure.is-seen .na-card-sign { transition-delay: 0.9s !important; }
+  html body.lp-num .na-figure.is-seen .na-legend { transition-delay: 1s !important; }
+}
+html body.lp-num .nq { overflow: clip; }
+/* decisions on desktop: the gold underline no longer strikes the subtitle; the leaves stay off the cards */
+html body.lp-num .nq-sub { margin-top: 24px !important; }
+@media (min-width: 761px) { html body.lp-num .nq :is(.nq-leaf-l, .nq-leaf-r) { display: none !important; } }
+/* tablet and small desktop: the photo starts where the copy ends, so the program name and form are never covered */
+@media (min-width: 761px) and (max-width: 1399px) {
+  html body.lp-num .nh2-copy { width: 52% !important; max-width: none !important; }
+  html body.lp-num .nh2-visual { left: 52% !important; right: 0 !important; width: auto !important; }
+  html body.lp-num .nh2-copy .v4-program { font-size: clamp(48px, 6.4vw, 80px) !important; }
+  html body.lp-num .nh2-copy h1 { font-size: clamp(30px, 3.6vw, 44px) !important; }
+}
+
+/* hero form in the narrower copy column: two fields per row, button full width; hero facts hidden where they would sit over the form */
+@media (min-width: 761px) and (max-width: 1399px) {
+  html body.lp-num .v4-hf-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) !important; }
+  html body.lp-num .v4-hf-row .v4-hf-btn { grid-column: 1 / -1; margin-top: 0 !important; width: 100%; justify-content: space-between; }
+  html body.lp-num .v4-hf-row3 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  html body.lp-num .nh2-feats { display: none !important; }
+}
+@media (min-width: 761px) and (max-width: 900px) { html body.lp-num .v4-hf-row { grid-template-columns: minmax(0, 1fr) !important; } }
