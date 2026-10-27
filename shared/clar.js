@@ -105,4 +105,37 @@
     const items = [...qList.children]; let k = 0, t = null;
     new IntersectionObserver(([e]) => { clearInterval(t); if (e.isIntersecting) t = setInterval(() => { items.forEach((li, j) => li.classList.toggle('is-lit', j === k)); k = (k + 1) % items.length; }, 1800); }, { threshold: 0.4 }).observe(qList);
   }
+
+  // Who-you-are tabs: tap to switch; while on screen and untouched, they turn every 9 s.
+  const tabWrap = document.querySelector('.cl-ptabs');
+  if (tabWrap) {
+    const tabs = [...tabWrap.querySelectorAll('[role="tab"]')];
+    const panes = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
+    let at = 0, touched = false, vis = false;
+    const sel = (n, focus) => {
+      at = n;
+      tabs.forEach((t, k) => { const on = k === n; t.classList.toggle('is-on', on); t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; panes[k].hidden = !on; });
+      if (focus) tabs[n].focus();
+      tabs[n].scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduce ? 'auto' : 'smooth' });
+    };
+    tabs.forEach((t, k) => t.addEventListener('click', () => { touched = true; sel(k); window.dataLayer?.push({ event: 'persona_pick', persona: t.textContent }); }));
+    tabWrap.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { touched = true; sel((at + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length, true); } });
+    new IntersectionObserver(([e]) => { vis = e.isIntersecting; }, { threshold: 0.35 }).observe(tabWrap.parentElement);
+    if (!reduce) setInterval(() => { if (vis && !touched) sel((at + 1) % tabs.length); }, 9000);
+  }
+
+  // "This is me" on a persona also fills the occupation.
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-pick-occ]');
+    const form = document.querySelector('#en-form');
+    if (a && form && form.elements.occupation) form.elements.occupation.value = a.dataset.pickOcc;
+  });
+
+  // Hero: the six questions from the Life Map static, one after another.
+  const rot = document.querySelector('[data-rot]');
+  if (rot && !reduce) {
+    const qs = ['When will you get a job?', 'When will your business grow?', 'How much will your income increase?', 'When should you take extra care of your health?', 'When will you get married?', 'Any problem in marriage or relationships?'];
+    let i = 0;
+    setInterval(() => { rot.classList.add('is-out'); setTimeout(() => { i = (i + 1) % qs.length; rot.textContent = qs[i]; rot.classList.remove('is-out'); }, 350); }, 2600);
+  }
 })();

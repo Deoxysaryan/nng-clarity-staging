@@ -269,3 +269,56 @@ html body.lp-clar .cl-plans > * { min-width: 0; }
 html body.lp-clar .cl-plan-cta { white-space: normal !important; max-width: 100%; }
 @media (max-width: 300px) { html body.lp-clar .cl-plan { padding: 24px 14px 20px; } html body.lp-clar .cl-plan-fee b { font-size: 30px; } }
 html body.lp-clar .cl-res-ses [data-res-fee] { display: block; margin-top: 2px; }
+
+/* ---------- Layer 3: problems by who you are ---------- */
+html body.lp-clar .cl-rot { margin: 14px 0 0; min-height: 1.5em; font-family: var(--serif, var(--display)); font-style: italic; font-size: clamp(19px, 1.7vw, 24px); color: #8a6a3f; }
+html body.lp-clar .cl-rot b { font-weight: 500; display: inline-block; transition: opacity .35s ease, translate .35s ease; }
+html body.lp-clar .cl-rot b.is-out { opacity: 0; translate: 0 6px; }
+html body.lp-clar .cl-prob { position: relative; padding: clamp(56px, 7vw, 96px) 0; background: radial-gradient(50% 40% at 85% 10%, rgb(227 194 122 / .22), transparent 70%), linear-gradient(180deg, #FAF6F0, #F4EBDC); }
+html body.lp-clar .cl-prob-head { max-width: 720px; margin: 0 auto; text-align: center; }
+html body.lp-clar .cl-prob-head .nh2-kicker { justify-content: center; }
+html body.lp-clar .cl-prob-head h2, html body.lp-clar #report-title { text-wrap: balance; }
+html body.lp-clar .cl-prob-head h2 { margin: 14px 0 0; font-family: var(--display); font-weight: 400; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; color: var(--cink); }
+html body.lp-clar .cl-prob-head h2 em { font-family: var(--serif, var(--display)); color: #A57A33; }
+html body.lp-clar .cl-prob-sub { margin: 14px auto 0; max-width: 560px; font-size: 16.5px; line-height: 1.6; color: var(--cmuted); }
+html body.lp-clar .cl-ptabs { display: flex; justify-content: center; gap: 8px; margin: 28px auto 0; padding: 6px; width: max-content; max-width: 100%; border-radius: 999px; background: #FFFDF8; box-shadow: inset 0 0 0 1px rgb(201 162 90 / .4); overflow-x: auto; scrollbar-width: none; }
+html body.lp-clar .cl-ptabs::-webkit-scrollbar { display: none; }
+html body.lp-clar .cl-ptabs button { flex: none; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: none; color: var(--cink); font: 600 15px var(--body); cursor: pointer; transition: background .3s ease, color .3s ease; }
+html body.lp-clar .cl-ptabs button.is-on { background: linear-gradient(160deg, #23503D, #173628); color: #F4E2B8; }
+html body.lp-clar .cl-ptabs button:focus-visible { outline: 2px solid var(--cgold); outline-offset: 2px; }
+html body.lp-clar .cl-pp { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(20px, 3.5vw, 48px); align-items: center; max-width: 1040px; margin: 26px auto 0; }
+html body.lp-clar .cl-pp:not([hidden]) { animation: cl-in .5s ease both; }
+html body.lp-clar .cl-pp-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 22px; box-shadow: 0 0 0 1px rgb(201 162 90 / .35), 0 34px 60px -34px rgb(60 45 20 / .55); }
+html body.lp-clar .cl-pp-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+html body.lp-clar .cl-pp-after { opacity: 0; animation: n-fade 7s ease-in-out infinite; }
+html body.lp-clar .cl-pp-who { position: absolute; left: 14px; bottom: 14px; padding: 7px 14px; border-radius: 999px; background: rgb(20 37 27 / .82); color: #F4E2B8; font-size: 13.5px; font-weight: 600; backdrop-filter: blur(6px); }
+html body.lp-clar .cl-pp-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+html body.lp-clar .cl-pp-list li { position: relative; padding: 16px 18px 16px 20px; border-radius: 16px; background: #FFFDF8; box-shadow: 0 0 0 1px rgb(201 162 90 / .3), 0 18px 34px -26px rgb(60 45 20 / .5); border-left: 3px solid var(--cgold); }
+html body.lp-clar .cl-pp-list p { margin: 6px 0 0; font-family: var(--serif, var(--display)); font-style: italic; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.35; color: var(--cink); }
+html body.lp-clar .cl-tag { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #8a6a3f; }
+html body.lp-clar .cl-pp-ans { margin-top: 16px; padding: 16px 18px; border-radius: 16px; background: linear-gradient(160deg, #1D4A37, #123A2B); color: #F4ECDC; }
+html body.lp-clar .cl-pp-ans p { margin: 0; font-size: 15.5px; line-height: 1.55; }
+html body.lp-clar .cl-pp-ans .cl-pp-ak { margin-bottom: 4px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cgold2); }
+html body.lp-clar .cl-pp-cta { margin-top: 18px; text-decoration: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html body.lp-clar .cl-pp:not([hidden]) .cl-pp-list li { animation: cl-up .55s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(.08s + var(--i) * .1s); }
+}
+@keyframes cl-up { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+@media (prefers-reduced-motion: reduce) { html body.lp-clar .cl-pp-after { animation: none; } }
+@media (max-width: 760px) {
+  html body.lp-clar .cl-ptabs { justify-content: flex-start; width: auto; margin-inline: -4px; }
+  html body.lp-clar .cl-ptabs button { padding: 0 14px; font-size: 14px; }
+  html body.lp-clar .cl-pp { grid-template-columns: 1fr; gap: 16px; }
+  html body.lp-clar .cl-pp-photo { aspect-ratio: 4 / 3; }
+  html body.lp-clar .cl-pp-photo img { object-position: 50% 22%; }
+  html body.lp-clar .cl-pp-list p { font-size: 18px; }
+}
+/* six questions, answered */
+html body.lp-clar .cl-qa strong { font-family: var(--serif, var(--display)) !important; font-style: italic; font-size: 20px !important; }
+html body.lp-clar .cl-qa small i { display: inline-block; margin-right: 8px; padding: 2px 8px; border-radius: 999px; background: rgb(227 194 122 / .18); font-style: normal; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--cgold2); }
+html body.lp-clar .cl-prog-name { white-space: nowrap; }
+@media (max-width: 760px) { html body.lp-clar .nh2-copy .cl-prog-name { font-size: clamp(40px, 12vw, 52px) !important; } }
+html body.lp-clar .cl-tag, html body.lp-clar .cl-qa small i { font-size: 12px; }
+html body.lp-clar .cl-pp-ans p:not(.cl-pp-ak) { color: #F4ECDC !important; }
+html body.lp-clar .cl-pp-ans { background: linear-gradient(160deg, #1D4A37, #123A2B) !important; }
+@media (max-width: 760px) { html body.lp-clar .cl-hero-fee { display: grid; gap: 4px; } html body.lp-clar .cl-hero-fee span { display: block; } }
